@@ -1,0 +1,33 @@
+path: C:/Users/jsayed/Downloads/DHBW/lung-disease-detection/dataset  # dataset root dir
+
+train: images/train  # relative to 'path'
+val: images/val
+test: images/test
+
+# Number of classes
+nc: 22
+
+# Class names
+names:
+  0: Aortic enlargement
+  1: Atelectasis
+  2: Calcification
+  3: Cardiomegaly
+  4: Clavicle fracture
+  5: Consolidation
+  6: Edema
+  7: Emphysema
+  8: Enlarged PA
+  9: ILD
+  10: Infiltration
+  11: Lung Opacity
+  12: Lung cavity
+  13: Lung cyst
+  14: Mediastinal shift
+  15: Nodule/Mass
+  16: Pleural effusion
+  17: Pleural thickening
+  18: Pneumothorax
+  19: Pulmonary fibrosis
+  20: Rib fracture
+  21: Other lesion
