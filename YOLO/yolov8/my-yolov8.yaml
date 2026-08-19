@@ -1,5 +1,9 @@
 # Lung Disease Dataset
-path: c:\Users\jsayed\Downloads\DHBW\lung-disease-detection\dataset
+# NOTE: this file is regenerated automatically by the training notebook
+# (see the `yaml_content` cell), which writes an absolute `path` for the
+# machine it runs on. The relative path below is just a portable default
+# for anyone opening this file directly.
+path: ../../dataset
 train: images/train
 val: images/val
 test: images/test

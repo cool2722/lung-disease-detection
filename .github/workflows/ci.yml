@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install lint tooling
+        run: pip install ruff
+
+      - name: Lint
+        run: ruff check app.py rescale_images.py visualize_patient_details.py
+
+      - name: Byte-compile all Python files (syntax check)
+        run: python -m compileall -q app.py rescale_images.py visualize_patient_details.py

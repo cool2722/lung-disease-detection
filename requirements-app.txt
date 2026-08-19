@@ -1,0 +1,6 @@
+# Minimal dependencies for serving the inference app (app.py).
+# Kept separate from requirements.txt (training/notebook deps) so the
+# deployed app builds fast and stays small.
+gradio>=4.0
+ultralytics>=8.1
+opencv-python-headless>=4.8
