@@ -7,13 +7,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements-app.txt .
+# leaner than requirements.txt
+COPY requirements-app.txt . 
 RUN pip install --no-cache-dir -r requirements-app.txt
 
 COPY app.py .
-# Optional: bring in a trained checkpoint if present at build time
-# (drop it at weights/best.pt before building). Otherwise the app
-# falls back to demo mode automatically.
+# Preferable to bring in a trained checkpoint, if present, at build time
+# (drop it at weights/best.pt before building). 
+# Otherwise app falls back to demo mode automatically.
 COPY weights/ weights/
 
 EXPOSE 7860

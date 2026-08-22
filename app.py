@@ -4,8 +4,7 @@ Loads a YOLO checkpoint and runs it on an uploaded chest X-ray image.
 
 Weight resolution order:
   1. `MODEL_WEIGHTS` env var, if set and the file exists.
-  2. `weights/best.pt` in the repo root, if present (drop your trained
-     checkpoint there, e.g. `runs/detect/train/weights/best.pt` from a
+  2. `weights/best.pt` in the repo root, if present (under `runs/detect/train/weights/best.pt` from a
      training run).
   3. Fallback to a stock COCO-pretrained YOLOv8n checkpoint in DEMO MODE,
      so the app is provably working end-to-end even without a trained
@@ -22,7 +21,6 @@ import os
 import gradio as gr
 from ultralytics import YOLO
 
-# Must match the `names` list in YOLO/yolov8/my-yolov8.yaml / my-yolov12.yaml
 LUNG_DISEASE_CLASSES = [
     "Aortic enlargement", "Atelectasis", "Calcification", "Cardiomegaly",
     "Clavicle fracture", "Consolidation", "Edema", "Emphysema",
@@ -37,7 +35,6 @@ DEFAULT_WEIGHTS_PATH = "weights/best.pt"
 DISCLAIMER = (
     "**Research / educational demo only — not a medical device.** "
     "Do not use these predictions for diagnosis or any clinical decision. "
-    "Always consult a qualified radiologist or physician."
 )
 
 
@@ -48,8 +45,8 @@ def _resolve_weights() -> tuple[str, bool]:
         return env_path, False
     if os.path.isfile(DEFAULT_WEIGHTS_PATH):
         return DEFAULT_WEIGHTS_PATH, False
-    # No trained lung-disease checkpoint available: fall back to a small
-    # general-purpose pretrained model just to keep the app functional.
+    # If no trained lung-disease checkpoint available: fall back to a small
+    # general-purpose pretrained model to keep the app functional.
     return "yolov8n.pt", True
 
 
