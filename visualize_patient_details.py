@@ -1,3 +1,4 @@
+# Display the first 20 patient details
 import pandas as pd
 import numpy as np
 
