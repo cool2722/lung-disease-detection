@@ -1,6 +1,6 @@
 # Display the first 20 patient details
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 data = np.load("patient_details.npy", allow_pickle=True)
 df = pd.DataFrame(data, columns=["Filename", "Sex", "Age", "Size (m)", "Weight (kg)","row","column"])
