@@ -44,7 +44,7 @@ After training, copy `runs/detect/train/weights/best.pt` to `weights/best.pt` in
 
 ## Deploying
 
-App is deployed on the **Gradio app on [Hugging Face Spaces](https://huggingface.co/spaces)** (free tier: 2 vCPU / 16GB RAM). To replicate:
+App is deployed on the **Gradio app on my [Hugging Face Spaces](https://huggingface.co/spaces/sjr26/lung-disease-detector)** (free tier: 2 vCPU / 16GB RAM). To replicate:
 
 1. Create a new Space → SDK: **Gradio**.
 2. Push this repo's `app.py`, `requirements-app.txt` (rename to `requirements.txt` inside the Space, or point the Space's build at it) and, if you have one, `weights/best.pt` to the Space's git repo.
