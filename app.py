@@ -55,9 +55,7 @@ WEIGHTS_PATH, DEMO_MODE = _resolve_weights()
 model = YOLO(WEIGHTS_PATH)
 
 
-# Required on Hugging Face Spaces' ZeroGPU hardware: without at least one
-# @spaces.GPU-decorated function, the Space refuses to start. Outside a
-# ZeroGPU Space (local runs, other hosts) this decorator is a no-op.
+# Required for Hugging Face Spaces' ZeroGPU hardware
 @spaces.GPU
 def predict(image):
     if image is None:
